@@ -1,36 +1,35 @@
 <?php include_once "partials/cssdatatables.php" ?>
 
 <div class="content-header">
-  <div class="container-fluid">
+  <?php
+  if (isset($_SESSION["hasil"])) {
+    if ($_SESSION["hasil"]) {
+  ?>
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5><i class="icon fas fa-check"></i> Berhasil</h5>
+        <?php echo $_SESSION["pesan"] ?>
+      </div>
     <?php
-    if (isset($_SESSION["hasil"])) {
-      if ($_SESSION["hasil"]) {
+    } else {
     ?>
-        <div class="alert alert-success alert-dismissible fade show m-2" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h5><i class="icon fas fa-check"></i> Berhasil</h5>
-          <?php echo $_SESSION["pesan"] ?>
-        </div>
-      <?php
-      } else {
-      ?>
-        <div class="alert alert-danger alert-dismissible fade show m-2" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h5><i class="icon fas fa-ban"></i> Gagal</h5>
-          <?php echo $_SESSION["pesan"] ?>
-        </div>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5><i class="icon fas fa-ban"></i> Gagal</h5>
+        <?php echo $_SESSION["pesan"] ?>
+      </div>
 
-    <?php
-      }
-      unset($_SESSION["hasil"]);
-      unset($_SESSION["pesan"]);
+  <?php
     }
-    ?>
-
+    unset($_SESSION["hasil"]);
+    unset($_SESSION["pesan"]);
+  }
+  ?>
+  <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
         <h1 class="m-0">Lokasi</h1>
@@ -80,10 +79,11 @@
               <td><?php echo $no++ ?></td>
               <td><?php echo $row['nama_lokasi'] ?></td>
               <td>
-                <a href="?page=lokasiupdate&id=<?php echo $row['id'] ?>" class="btn btn-primary btn-sm mr-1">
-                  <i class="fa fa-edit"></i> Ubah </a>
-                <a href="?page=lokasidelete&id=<?php echo $row['id'] ?>" class="btn btn-danger btn-sm" onClick="javascript: return confirm('Konfirmasi data akan dihapus?');"> <i class="fa fa-trash"></i> Hapus
-                </a>
+                <!-- <form action method="POST"> -->
+                <!-- <input type="hidden" name="id" value="<?php echo $row['id'] ?>"> -->
+                <a href="?page=lokasiupdate&id=<?php echo $row['id'] ?>" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i> Ubah</a>
+                <a href="?page=lokasidelete&id=<?php echo $row['id'] ?>" class="btn btn-danger btn-sm" onClick="javascript: return confirm('Konfirmasi data akan dihapus?');"><i class="fa fa-trash"></i> Hapus</a>
+                <!-- </form> -->
               </td>
             </tr>
           <?php
