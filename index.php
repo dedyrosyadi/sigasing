@@ -18,7 +18,7 @@ session_start();
     </div>
     <?php include 'partials/control.php' ?>
     <?php include 'partials/footer.php' ?>
-    <?php include 'partials/scripts.php' ?>
+    
   </div>
 </body>
 

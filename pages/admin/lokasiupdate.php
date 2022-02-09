@@ -63,7 +63,7 @@ if (isset($_GET['id'])) {
         </div>
       </div>
     </section>
-<?php
+  <?php
   } else {
     $_SESSION['hasil_update'] = false;
     echo "<meta http-equiv='refresh' content='0;url=?page=lokasiread'>";
@@ -72,5 +72,5 @@ if (isset($_GET['id'])) {
   $_SESSION['hasil_update'] = false;
   echo "<meta http-equiv='refresh' content='0;url=?page=lokasiread'>";
 }
-include_once "partials/scripts.php"
+
 ?>

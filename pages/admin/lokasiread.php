@@ -79,11 +79,8 @@
               <td><?php echo $no++ ?></td>
               <td><?php echo $row['nama_lokasi'] ?></td>
               <td>
-                <!-- <form action method="POST"> -->
-                <!-- <input type="hidden" name="id" value="<?php echo $row['id'] ?>"> -->
                 <a href="?page=lokasiupdate&id=<?php echo $row['id'] ?>" class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i> Ubah</a>
                 <a href="?page=lokasidelete&id=<?php echo $row['id'] ?>" class="btn btn-danger btn-sm" onClick="javascript: return confirm('Konfirmasi data akan dihapus?');"><i class="fa fa-trash"></i> Hapus</a>
-                <!-- </form> -->
               </td>
             </tr>
           <?php
@@ -91,13 +88,13 @@
           ?>
         </tbody>
       </table>
-
     </div>
   </div>
 </div>
 
 <?php include_once "partials/scripts.php" ?>
 <?php include_once "partials/scriptsdatatables.php" ?>
+
 <script>
   $(function() {
     $('#mytable').DataTable();
